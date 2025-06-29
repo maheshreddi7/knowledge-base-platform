@@ -323,13 +323,3 @@ This project is licensed under the MIT License.
 **Mahesh Reddy Pannala**
 - Email: maheshreddy.pannalaaa@gmail.com
 
-## 🙏 Acknowledgments
-
-- Spring Boot team for the excellent framework
-- React team for the powerful frontend library
-- MySQL team for the reliable database
-- All contributors and testers
-
----
-
-**Happy Knowledge Sharing! 📚✨** 
