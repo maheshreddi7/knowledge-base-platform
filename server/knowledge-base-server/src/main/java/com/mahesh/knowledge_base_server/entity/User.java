@@ -2,6 +2,7 @@ package com.mahesh.knowledge_base_server.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -21,4 +22,10 @@ public class User {
     private String password;
 
     private String name;
+
+    private Boolean isEmailVerified = false;
+
+    private String otp;
+
+    private LocalDateTime otpExpiry;
 }

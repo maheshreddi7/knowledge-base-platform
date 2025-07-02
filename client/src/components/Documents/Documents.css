@@ -326,6 +326,10 @@
   padding: 1.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .document-card:hover {
@@ -399,6 +403,9 @@
 
 .document-content {
   margin-bottom: 1rem;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: 120px;
 }
 
 .document-content p {
@@ -534,4 +541,77 @@
   font-size: 1.1rem;
   color: #222;
   word-break: break-word;
+}
+
+.dashboard.dark-theme .modal-document-content {
+  color: #fff !important;
+}
+
+.dashboard.dark-theme .ql-editor {
+  color: #fff !important;
+  background: #232323 !important;
+}
+
+.dashboard.dark-theme .document-form-container {
+  background: #232323 !important;
+  color: #fff !important;
+}
+.dashboard.dark-theme .document-form-header {
+  background: #181818 !important;
+  border-bottom: 1px solid #333 !important;
+  color: #fff !important;
+}
+.dashboard.dark-theme .form-group label {
+  color: #fff !important;
+}
+.dashboard.dark-theme .form-group input,
+.dashboard.dark-theme .form-group select {
+  background: #232323 !important;
+  color: #fff !important;
+  border: 2px solid #333 !important;
+}
+.dashboard.dark-theme .form-group input:focus,
+.dashboard.dark-theme .form-group select:focus {
+  border-color: #667eea !important;
+  background: #232323 !important;
+  color: #fff !important;
+}
+.dashboard.dark-theme .ql-toolbar {
+  background: #232323 !important;
+  border-color: #333 !important;
+}
+.dashboard.dark-theme .ql-picker {
+  color: #fff !important;
+}
+.dashboard.dark-theme .ql-stroke {
+  stroke: #fff !important;
+}
+.dashboard.dark-theme .ql-fill {
+  fill: #fff !important;
+}
+.dashboard.dark-theme .ql-picker-label {
+  color: #fff !important;
+}
+.dashboard.dark-theme .ql-picker-options {
+  background: #232323 !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+.dashboard.dark-theme .ql-toolbar button:hover,
+.dashboard.dark-theme .ql-toolbar button.ql-active {
+  background: #333 !important;
+}
+.dashboard.dark-theme .ql-editor {
+  color: #fff !important;
+  background: #232323 !important;
+}
+.dashboard.dark-theme .submit-button,
+.dashboard.dark-theme .cancel-button {
+  background: #333 !important;
+  color: #fff !important;
+  border: 1px solid #444 !important;
+}
+.dashboard.dark-theme .submit-button:hover,
+.dashboard.dark-theme .cancel-button:hover {
+  background: #444 !important;
 } 

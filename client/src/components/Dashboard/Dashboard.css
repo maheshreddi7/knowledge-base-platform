@@ -226,4 +226,80 @@
   .header-actions {
     justify-content: center;
   }
+}
+
+.dashboard.dark-theme {
+  background: #181818;
+  color: #f1f1f1;
+}
+.dashboard.dark-theme .dashboard-header {
+  background: #232323;
+  color: #f1f1f1;
+}
+.dashboard.dark-theme .dashboard-content,
+.dashboard.dark-theme .document-card {
+  background: #232323;
+  color: #f1f1f1;
+  border-color: #333;
+}
+.dashboard.dark-theme .document-card-header,
+.dashboard.dark-theme .document-footer {
+  border-color: #333;
+}
+.dashboard.dark-theme .action-button {
+  background: #232323;
+  color: #f1f1f1;
+}
+.dashboard.dark-theme .action-button:hover {
+  background: #333;
+}
+.dashboard.dark-theme .modal-content {
+  background: #232323;
+  color: #f1f1f1;
+}
+.dashboard.dark-theme .modal-close {
+  color: #f1f1f1;
+}
+.dashboard.dark-theme .search-input {
+  background: #232323;
+  color: #f1f1f1;
+  border-color: #333;
+}
+.dashboard.dark-theme .search-input:focus {
+  background: #232323;
+  color: #fff;
+  border-color: #667eea;
+}
+
+.dashboard.dark-theme,
+.dashboard.dark-theme h1,
+.dashboard.dark-theme h2,
+.dashboard.dark-theme h3,
+.dashboard.dark-theme p,
+.dashboard.dark-theme span,
+.dashboard.dark-theme label,
+.dashboard.dark-theme .document-title h3,
+.dashboard.dark-theme .document-meta,
+.dashboard.dark-theme .created-date,
+.dashboard.dark-theme .updated-date {
+  color: #fff !important;
+}
+
+.dashboard.dark-theme .visibility-badge,
+.dashboard.dark-theme .visibility-badge.public,
+.dashboard.dark-theme .visibility-badge.private {
+  color: inherit !important;
+}
+
+.dashboard.dark-theme .visibility-badge.public {
+  color: #155724 !important;
+}
+
+.dashboard.dark-theme .visibility-badge.private {
+  color: #721c24 !important;
+}
+
+.dashboard.dark-theme .content-header {
+  background: #22242a !important;
+  border-bottom: 1px solid #333 !important;
 } 

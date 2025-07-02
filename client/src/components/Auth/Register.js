@@ -60,7 +60,9 @@ const Register = ({ onLogin, switchToLogin }) => {
     <div className="auth-container">
       <div className="auth-header">
         <div className="logo-container">
-          <div className="logo-icon">☁️</div>
+          <div className="logo-icon" style={{ background: '#e3f0ff', borderRadius: '50%', padding: 0, width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <img src="/figga-logo.png.webp" alt="Frigga Logo" style={{ height: '24px', width: '24px', background: 'transparent', borderRadius: '50%' }} />
+          </div>
           <h1 className="company-name">Frigga Cloud Labs</h1>
         </div>
         <p className="company-tagline">Knowledge Base Platform</p>

@@ -16,6 +16,7 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   const fetchDocuments = useCallback(async (token) => {
     setLoading(true);
@@ -207,10 +208,28 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashboard">
+    <div className={`dashboard${darkTheme ? ' dark-theme' : ''}`}>
       <header className="dashboard-header">
         <div className="header-content">
-          <h1>Knowledge Base Platform</h1>
+          <div className="header-logo-title" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{
+              background: '#e3f0ff',
+              borderRadius: '50%',
+              padding: 0,
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden'
+            }}>
+              <img src="/figga-logo.png.webp" alt="Frigga Logo" style={{ height: '28px', width: '28px', background: 'transparent', borderRadius: '50%' }} />
+            </div>
+            <h1 style={{ margin: 0 }}>Knowledge Base Platform</h1>
+          </div>
+          <button onClick={() => setDarkTheme(t => !t)} className="theme-toggle-btn" title="Toggle dark theme" style={{ marginLeft: 'auto', marginRight: '16px', background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>
+            {darkTheme ? '☀️' : '🌙'}
+          </button>
           <div className="user-info">
             <span className="user-email">{userEmail}</span>
             <button onClick={handleLogout} className="logout-button">
@@ -270,6 +289,7 @@ const Dashboard = () => {
               onRefresh={() => fetchDocuments(localStorage.getItem('token'))}
               isSearchResults={searchQuery.trim() !== ''}
               searchQuery={searchQuery}
+              darkTheme={darkTheme}
             />
           )}
         </div>

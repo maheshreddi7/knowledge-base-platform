@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Documents.css';
 
-const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults = false, searchQuery = '' }) => {
+const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults = false, searchQuery = '', darkTheme = false }) => {
   const [filterVisibility, setFilterVisibility] = useState('ALL');
   const [filteredDocuments, setFilteredDocuments] = useState(documents);
   const [viewModalOpen, setViewModalOpen] = useState(false);
@@ -126,8 +126,8 @@ const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults 
                     title="View document"
                   >
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M1 10C1 10 4.5 4 10 4C15.5 4 19 10 19 10C19 10 15.5 16 10 16C4.5 16 1 10 1 10Z" stroke="#333" strokeWidth="2"/>
-                      <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2"/>
+                      <path d="M1 10C1 10 4.5 4 10 4C15.5 4 19 10 19 10C19 10 15.5 16 10 16C4.5 16 1 10 1 10Z" stroke={darkTheme ? '#fff' : '#333'} strokeWidth="2"/>
+                      <circle cx="10" cy="10" r="3" stroke={darkTheme ? '#fff' : '#333'} strokeWidth="2"/>
                     </svg>
                   </button>
                   <button
