@@ -9,36 +9,24 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Document {
-
+public class DocumentVersion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    @ManyToOne
+    @JoinColumn(name = "document_id")
+    private Document document;
 
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    private String visibility; // "PUBLIC" or "PRIVATE"
+    private Integer version;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
     private User author;
 
-    @ManyToOne
-    @JoinColumn(name = "space_id")
-    private Space space;
-
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Document parent;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    
-    // Version tracking
-    private Integer version = 1;
-    private String lastModifiedBy;
-    private LocalDateTime lastModifiedAt;
-}
+} 

@@ -4,6 +4,8 @@ import './Documents.css';
 const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults = false, searchQuery = '' }) => {
   const [filterVisibility, setFilterVisibility] = useState('ALL');
   const [filteredDocuments, setFilteredDocuments] = useState(documents);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState(null);
 
   useEffect(() => {
     let filtered = documents;
@@ -53,6 +55,16 @@ const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults 
 
   return (
     <div className="document-list-container">
+      {/* Modal for viewing document */}
+      {viewModalOpen && selectedDocument && (
+        <div className="modal-overlay" onClick={() => setViewModalOpen(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setViewModalOpen(false)}>&times;</button>
+            <h2>{selectedDocument.title}</h2>
+            <div className="modal-document-content" dangerouslySetInnerHTML={{ __html: selectedDocument.content }} />
+          </div>
+        </div>
+      )}
       <div className="document-list-header">
         <h2>{getTitle()}</h2>
         
@@ -107,6 +119,19 @@ const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults 
                 <div className="document-actions">
                   <button
                     onClick={() => {
+                      setSelectedDocument(doc);
+                      setViewModalOpen(true);
+                    }}
+                    className="action-button view"
+                    title="View document"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M1 10C1 10 4.5 4 10 4C15.5 4 19 10 19 10C19 10 15.5 16 10 16C4.5 16 1 10 1 10Z" stroke="#333" strokeWidth="2"/>
+                      <circle cx="10" cy="10" r="3" stroke="#333" strokeWidth="2"/>
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => {
                       console.log('Edit button clicked for document:', doc);
                       onEdit(doc);
                     }}
@@ -129,12 +154,19 @@ const DocumentList = ({ documents, onEdit, onDelete, onRefresh, isSearchResults 
               </div>
               
               <div className="document-content">
-                <p>
-                  {isSearchResults 
-                    ? highlightSearchTerm(truncateContent(doc.content), searchQuery)
-                    : truncateContent(doc.content)
-                  }
-                </p>
+                {isSearchResults ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: highlightSearchTerm(truncateContent(doc.content), searchQuery)
+                    }}
+                  />
+                ) : (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: truncateContent(doc.content)
+                    }}
+                  />
+                )}
               </div>
               
               <div className="document-footer">
